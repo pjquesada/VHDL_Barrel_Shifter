@@ -13,12 +13,6 @@ entity BarrelShifter is
 		ctr : in std_logic_vector(3 downto 0);
 		clk : in std_logic;
 		result : out std_logic_vector(31 downto 0);
-		display0 : out std_logic_vector(6 downto 0); 
-		display1 : out std_logic_vector(6 downto 0); 
-		display2 : out std_logic_vector(6 downto 0); 
-		display3 : out std_logic_vector(6 downto 0); 
-		display4 : out std_logic_vector(6 downto 0); 
-		display5 : out std_logic_vector(6 downto 0));
 end BarrelShifter;
 
 architecture behav of BarrelShifter is
@@ -83,12 +77,5 @@ architecture behav of BarrelShifter is
 		BS : shifter port map(m1out, C, hiLo, X, saout);
 				
 		result <= saout;
-		
-		D1 : Display port map(saout(3 downto 0), display0);
-		D2 : Display port map(saout(7 downto 4), display1);
-	   D3 : Display port map(saout(11 downto 8), display2);
-	   D4 : Display port map(saout(15 downto 12), display3);
-		D5 : Display port map(saout(19 downto 16), display4);
-	   D6 : Display port map(saout(23 downto 20), display5);
 
 end behav;
